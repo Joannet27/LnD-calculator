@@ -1,0 +1,54 @@
+<!DOCTYPEhtml>
+<!-- to auto formate alt+shift+f -->
+    <html>
+
+    <head>
+        <title>LnDCalculator</title>
+        <style>
+            label {
+                font-weight: bold;
+                font-size: large;
+                padding: 10px;
+            }
+
+            p {
+                font-size: 20px;
+                font-family: 'FranklinGothicMedium', 'ArialNarrow', Arial, sans-serif;
+            }
+        </style>
+        <script src="Lnd-Calc.js"></script>
+    </head>
+
+    <body>
+        <h1>LnDCalculator</h1>
+        <!--<formmethod="get">-->
+        <p>Star</p>
+
+        <label>
+            <input type="radio" name="rarity" value="4&#11088;" id="fourStar">
+                4&#11088;
+        </label>
+        <label>
+            <input type="radio" name="rarity" value="5&#11088;" id="fiveStar">
+                5&#11088;
+        </label>
+        <br>
+        <br>
+        <label>Level</label>
+        <input type="number" name="level" id="level" value="0" min=1 max= 80>
+            <br>
+            <br>
+            <input type="submit" value="Calculate" onclick="myFunction()">
+                <!--</form>-->
+
+                <!--CALCULATION-->
+                <hr>
+                <p id="star">Rarity:</p>
+                <p id="levelVal">Level:</p>
+                <h2>NextAccentionRequirement</h2>
+                <p id="crystN">Crystal N:</p>
+                <p id="crystR">Crystal R:</p>
+                <p id="crystSR">Crystal SR:</p>
+    </body>
+    
+    </html>
