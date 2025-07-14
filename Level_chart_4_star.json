@@ -1,0 +1,407 @@
+[
+ {
+    "level": 1,
+    "expNeed": 120,
+    "total": 120
+  },
+  {
+    "level": 1,
+    "expNeed": 120,
+    "total": 120
+  },
+  {
+    "level":2,
+    "expNeed": 130,
+    "total": 250
+  },
+  {
+    "level": 3,
+    "expNeed": 140,
+    "total": 390
+  },
+  {
+    "level": 4,
+    "expNeed": 140,
+    "total": 530
+  },
+  {
+    "level": 5,
+    "expNeed": 150,
+    "total": 680
+  },
+  {
+    "level": 6,
+    "expNeed": 160,
+    "total": 840
+  },
+  {
+    "level": 7,
+    "expNeed": 170,
+    "total": 1010
+  },
+  {
+    "level": 8,
+    "expNeed": 180,
+    "total": 1190
+  },
+  {
+    "level": 9,
+    "expNeed": 180,
+    "total": 1370
+  },
+  {
+    "level": 10,
+    "expNeed": 190,
+    "total": 1560
+  },
+  {
+    "level": 11,
+    "expNeed": 190,
+    "total": 1750
+  },
+  {
+    "level": 12,
+    "expNeed": 200,
+    "total": 1950
+  },
+  {
+    "level": 13,
+    "expNeed": 210,
+    "total": 2160
+  },
+  {
+    "level": 14,
+    "expNeed": 220,
+    "total": 2380
+  },
+  {
+    "level": 15,
+    "expNeed": 220,
+    "total": 2600
+  },
+  {
+    "level": 16,
+    "expNeed": 230,
+    "total": 2830
+  },
+  {
+    "level": 17,
+    "expNeed": 240,
+    "total": 3070
+  },
+  {
+    "level": 18,
+    "expNeed": 250,
+    "total": 3320
+  },
+  {
+    "level": 19,
+    "expNeed": 260,
+    "total": 3580
+  },
+  {
+    "level": 20,
+    "expNeed": 260,
+    "total": 3840
+  },
+  {
+    "level": 21,
+    "expNeed": 290,
+    "total": 4130
+  },
+  {
+    "level": 22,
+    "expNeed": 310,
+    "total": 4440
+  },
+  {
+    "level": 23,
+    "expNeed": 330,
+    "total": 4770
+  },
+  {
+    "level": 24,
+    "expNeed": 340,
+    "total": 5110
+  },
+  {
+    "level": 25,
+    "expNeed": 370,
+    "total": 5480
+  },
+  {
+    "level": 26,
+    "expNeed": 380,
+    "total": 5860
+  },
+  {
+    "level": 27,
+    "expNeed": 400,
+    "total": 6260
+  },
+  {
+    "level": 28,
+    "expNeed": 420,
+    "total": 6680
+  },
+  {
+    "level": 29,
+    "expNeed": 440,
+    "total": 7120
+  },
+  {
+    "level": 30,
+    "expNeed": 460,
+    "total": 7580
+  },
+  {
+    "level": 31,
+    "expNeed": 580,
+    "total": 8160
+  },
+  {
+    "level": 32,
+    "expNeed": 620,
+    "total": 8780
+  },
+  {
+    "level": 33,
+    "expNeed": 660,
+    "total": 9440
+  },
+  {
+    "level": 34,
+    "expNeed": 700,
+    "total": 10140
+  },
+  {
+    "level": 35,
+    "expNeed": 730,
+    "total": 10870
+  },
+  {
+    "level": 36,
+    "expNeed": 770,
+    "total": 11640
+  },
+  {
+    "level": 37,
+    "expNeed": 810,
+    "total": 12450
+  },
+  {
+    "level": 38,
+    "expNeed": 850,
+    "total": 13300
+  },
+  {
+    "level": 39,
+    "expNeed": 880,
+    "total": 14180
+  },
+  {
+    "level": 40,
+    "expNeed": 920,
+    "total": 15100
+  },
+  {
+    "level": 41,
+    "expNeed": 1160,
+    "total": 16260
+  },
+  {
+    "level": 42,
+    "expNeed": 1240,
+    "total": 17500
+  },
+  {
+    "level": 43,
+    "expNeed": 1310,
+    "total": 18810
+  },
+  {
+    "level": 44,
+    "expNeed": 1390,
+    "total": 20200
+  },
+  {
+    "level": 45,
+    "expNeed": 1460,
+    "total": 21660
+  },
+  {
+    "level": 46,
+    "expNeed": 1540,
+    "total": 23200
+  },
+  {
+    "level": 47,
+    "expNeed": 1620,
+    "total": 24820
+  },
+  {
+    "level": 48,
+    "expNeed": 1690,
+    "total": 26510
+  },
+  {
+    "level": 49,
+    "expNeed": 1760,
+    "total": 28270
+  },
+  {
+    "level": 50,
+    "expNeed": 2330,
+    "total": 30600
+  },
+  {
+    "level": 51,
+    "expNeed": 2470,
+    "total": 33070
+  },
+  {
+    "level": 52,
+    "expNeed": 2620,
+    "total": 35690
+  },
+  {
+    "level": 53,
+    "expNeed": 2780,
+    "total": 38470
+  },
+  {
+    "level": 54,
+    "expNeed": 2930,
+    "total": 41400
+  },
+  {
+    "level": 55,
+    "expNeed": 3070,
+    "total": 44470
+  },
+  {
+    "level": 56,
+    "expNeed": 3220,
+    "total": 47690
+  },
+  {
+    "level": 57,
+    "expNeed": 3380,
+    "total": 51070
+  },
+  {
+    "level": 58,
+    "expNeed": 3530,
+    "total": 54600
+  },
+  {
+    "level": 59,
+    "expNeed": 3670,
+    "total": 58270
+  },
+  {
+    "level": 60,
+    "expNeed": 4650,
+    "total": 62920
+  },
+  {
+    "level": 61,
+    "expNeed": 4950,
+    "total": 67870
+  },
+  {
+    "level": 62,
+    "expNeed": 5250,
+    "total": 73120
+  },
+  {
+    "level": 63,
+    "expNeed": 5550,
+    "total": 78670
+  },
+  {
+    "level": 64,
+    "expNeed": 5850,
+    "total": 84520
+  },
+  {
+    "level": 65,
+    "expNeed": 6150,
+    "total": 90670
+  },
+  {
+    "level": 66,
+    "expNeed": 6450,
+    "total": 97120
+  },
+  {
+    "level": 67,
+    "expNeed": 6750,
+    "total": 103870
+  },
+  {
+    "level": 68,
+    "expNeed": 7050,
+    "total": 110920
+  },
+  {
+    "level": 69,
+    "expNeed": 7350,
+    "total": 118270
+  },
+  {
+    "level": 70,
+    "expNeed": 8220,
+    "total": 126490
+  },
+  {
+    "level": 71,
+    "expNeed": 9060,
+    "total": 135550
+  },
+  {
+    "level": 72,
+    "expNeed": 9900,
+    "total": 145450
+  },
+  {
+    "level": 73,
+    "expNeed": 10740,
+    "total": 156190
+  },
+  {
+    "level": 74,
+    "expNeed": 11580,
+    "total": 167770
+  },
+  {
+    "level": 75,
+    "expNeed": 12420,
+    "total": 180190
+  },
+  {
+    "level": 76,
+    "expNeed": 13260,
+    "total": 193450
+  },
+  {
+    "level": 77,
+    "expNeed": 14100,
+    "total": 207550
+  },
+  {
+    "level": 78,
+    "expNeed": 14940,
+    "total": 222490
+  },
+  {
+    "level": 79,
+    "expNeed": 15780,
+    "total": 238270
+  },
+  {
+    "level": 80,
+    "expNeed": "-",
+    "total": "-"
+  }
+]
