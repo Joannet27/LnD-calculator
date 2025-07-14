@@ -1,0 +1,162 @@
+<!DOCTYPEhtml>
+    <!-- to auto formate alt+shift+f -->
+    <html>
+
+    <head>
+        <title>LnD Calculator</title>
+        <style>
+            label {
+                font-weight: bold;
+                font-size: large;
+                padding: 10px;
+            }
+
+            body {
+                background-color: rgb(175, 165, 223);
+                font-size: 20px;
+                font-family: 'FranklinGothicMedium', 'ArialNarrow', Arial, sans-serif;
+                text-align:justify;
+                margin: 10px auto;
+                padding: 2px 50px;
+                max-width: 900px;          
+             }
+            h1,h2 {
+                text-align: center;
+                color: purple;
+                font-family:cursive;
+            }
+            p{
+                text-align: left;
+                font-weight: bold;
+            }
+            table,th,td{
+                border: 3px solid purple;
+                border-collapse: collapse;
+                padding: 10px;
+                text-align: center;
+            }
+            td{
+                width: 100px;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <h1>Memories Calculator</h1>
+        <form method="get">
+            <label>
+                Rarity
+                <input type="radio" name="rarity" value="4" id="fourStar">
+                4&#11088;
+            </label>
+            <label>
+                <input type="radio" name="rarity" value="5" id="fiveStar">
+                5&#11088;
+            </label>
+            <br>
+            <br>
+            <label>Level</label>
+            <input type="number" name="level" id="level" value="0" min=1 max=80>
+            <br>
+            <br>
+            <input type="submit" value="Calculate" onclick="myFunction(event)">
+        </form>
+
+        <!--CALCULATION-->
+        <hr>
+        <p id="star">Rarity:</p>
+        <p id="levelVal">Level:</p>
+        <h2>Next Accention Requirement</h2>
+        <p id="crystN">Crystal N:</p>
+        <p id="crystR">Crystal R:</p>
+        <p id="crystSR">Crystal SR:</p>
+        
+        <br>
+        <h3>Level chart:</h3>
+        <table>
+            <tr>
+                <th>Level</th>
+                <th>Exp</th>
+                <th>Total</th>
+            </tr>
+            <tbody id="demo">
+            </tbody>
+        </table>
+
+
+        <script>
+
+            // 4 star memories chart
+
+            const tableEl = document.querySelector('#demo');
+            fetch('Level_chart_4_star.json')
+                .then(res => res.json())
+                .then(data => {
+                    for (let i = 0; i < data.length;i += 10) {
+                        const post = data[i];  
+                        tableEl.insertAdjacentHTML('beforeend', `
+                            <tr>
+                                <td>${post.level}</td>
+                                <td>${post.expNeed}</td>
+                                <td>${post.total}</td>
+                            </tr>
+                        `);
+                    }
+                });
+               
+
+
+            //calculations
+            function myFunction(event) {
+                if (event) event.preventDefault(); // Prevent form submission
+                // fourstar crystal requirements
+                const fourStarBase = 32;
+                let rarityInput = document.querySelector('input[name="rarity"]:checked');
+                let bnt = rarityInput ? rarityInput.value : null;
+                document.getElementById("star").innerHTML = "Rarity:" + bnt;
+
+                let level = document.getElementById("level").value;
+                document.getElementById("levelVal").innerHTML = "Level:" + level;
+
+                // Clear previous results
+                document.getElementById("crystN").innerHTML = "";
+                document.getElementById("crystR").innerHTML = "";
+                document.getElementById("crystSR").innerHTML = "";
+
+                if (bnt === "4") {
+                    if (level >= 1 && level < 10) {//10
+                        document.getElementById('crystN').innerHTML = "CrystalN:" + fourStarBase;
+                    } else if (level >= 10 && level < 20) {//20
+                        document.getElementById('crystN').innerHTML = "CrystalN:" + fourStarBase * 2;
+                    } else if (level >= 20 && level < 30) {//30
+                        document.getElementById('crystN').innerHTML = "CrystalN:" + fourStarBase * 4;
+                    } else if (level >= 30 && level < 40) {//40
+                        document.getElementById('crystN').innerHTML = "CrystalN:" + fourStarBase * 8;
+                        document.getElementById('crystR').innerHTML = "CrystalR:" + fourStarBase * 3.75;
+                    } else if (level >= 40 && level < 50) {//50
+                        document.getElementById('crystN').innerHTML = "CrystalN:" + fourStarBase * 16;
+                        document.getElementById('crystR').innerHTML = "CrystalR:" + fourStarBase * 7.5;
+                    } else if (level >= 50 && level < 60) {//60
+                        document.getElementById('crystN').innerHTML = "CrystalN:" + fourStarBase * 37.5;
+                        document.getElementById('crystR').innerHTML = "CrystalR:" + fourStarBase * 15.9375;
+                        document.getElementById('crystSR').innerHTML = "CrystalSR:" + fourStarBase * 7.5;
+                    } else if (level >= 50 && level < 70) {//70
+                        document.getElementById('crystN').innerHTML = "CrystalN:" + fourStarBase * 60;
+                        document.getElementById('crystR').innerHTML = "CrystalR:" + fourStarBase * 25;
+                        document.getElementById('crystSR').innerHTML = "CrystalSR:" + fourStarBase * 12.44;
+                    } else if (level >= 50 && level <= 80) {//60
+                        document.getElementById('crystN').innerHTML = "CrystalN:" + fourStarBase * 30;
+                        document.getElementById('crystR').innerHTML = "CrystalR:" + fourStarBase * 12;
+                        document.getElementById('crystSR').innerHTML = "CrystalSR:" + fourStarBase * 4.5;
+                    }
+                }//4starend
+            }
+
+
+
+
+        </script>
+    </body>
+
+    </html>
