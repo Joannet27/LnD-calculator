@@ -15,27 +15,34 @@
                 background-color: rgb(175, 165, 223);
                 font-size: 20px;
                 font-family: 'FranklinGothicMedium', 'ArialNarrow', Arial, sans-serif;
-                text-align:justify;
+                text-align: justify;
                 margin: 10px auto;
                 padding: 2px 50px;
-                max-width: 900px;          
-             }
-            h1,h2 {
+                max-width: 900px;
+            }
+
+            h1,
+            h2 {
                 text-align: center;
                 color: purple;
-                font-family:cursive;
+                font-family: cursive;
             }
-            p{
+
+            p {
                 text-align: left;
                 font-weight: bold;
             }
-            table,th,td{
+
+            table,
+            th,
+            td {
                 border: 3px solid purple;
                 border-collapse: collapse;
                 padding: 10px;
                 text-align: center;
             }
-            td{
+
+            td {
                 width: 100px;
             }
         </style>
@@ -57,7 +64,9 @@
             <br>
             <br>
             <label>Level</label>
-            <input type="number" name="level" id="level" value="0" min=1 max=80>
+            <input type="number" name="level" id="level" value="00" min=1 max=80>
+            <label>Next Level</label>
+            <input type="number" name="nxtLevel" id="nxtLevel" value="00" min=1 max=80>
             <br>
             <br>
             <input type="submit" value="Calculate" onclick="myFunction(event)">
@@ -68,10 +77,15 @@
         <p id="star">Rarity:</p>
         <p id="levelVal">Level:</p>
         <h2>Next Accention Requirement</h2>
-        <p id="crystN">Crystal N:</p>
-        <p id="crystR">Crystal R:</p>
-        <p id="crystSR">Crystal SR:</p>
-        
+        <h3>Ascension s</h3>
+        <p id="crystN">N:</p>
+        <p id="crystR">R:</p>
+        <p id="crystSR">SR:</p>
+        <h3>Bottles of Wishes</h3>
+        <p id="bottleN">N:</p>
+        <p id="bottleR">R:</p>
+        <p id="bottleSR">SR:</p>
+        <p id="bottleSSR">SSR:</p>
         <br>
         <h3>Level chart:</h3>
         <table>
@@ -93,8 +107,8 @@
             fetch('Level_chart_4_star.json')
                 .then(res => res.json())
                 .then(data => {
-                    for (let i = 0; i < data.length;i += 10) {
-                        const post = data[i];  
+                    for (let i = 0; i < data.length; i += 10) {
+                        const post = data[i];
                         tableEl.insertAdjacentHTML('beforeend', `
                             <tr>
                                 <td>${post.level}</td>
@@ -104,14 +118,19 @@
                         `);
                     }
                 });
-               
-
 
             //calculations
+            //memories  and bottle requirements
+            //Ascension  requirements
             function myFunction(event) {
                 if (event) event.preventDefault(); // Prevent form submission
-                // fourstar crystal requirements
-                const fourStarBase = 32;
+                // fourstar  requirements
+                const fourStarBase = 32;// Base value for 4 star memories
+                // const fiveStarBase = 64;// Base value for 5 star memories
+                const expBottleN = 10;// Base value for N bottles
+                const expBottleR = 50;// Base value for R bottles
+                const expBottleSR = 250;// Base value for SR bottles
+                const expBottleSSR = 1000;// Base value for SSR bottles
                 let rarityInput = document.querySelector('input[name="rarity"]:checked');
                 let bnt = rarityInput ? rarityInput.value : null;
                 document.getElementById("star").innerHTML = "Rarity:" + bnt;
@@ -123,38 +142,104 @@
                 document.getElementById("crystN").innerHTML = "";
                 document.getElementById("crystR").innerHTML = "";
                 document.getElementById("crystSR").innerHTML = "";
-
+                document.getElementById("bottleN").innerHTML = "";
+                document.getElementById("bottleR").innerHTML = "";
+                document.getElementById("bottleSR").innerHTML = "";
+                document.getElementById("bottleSSR").innerHTML = "";
                 if (bnt === "4") {
                     if (level >= 1 && level < 10) {//10
-                        document.getElementById('crystN').innerHTML = "CrystalN:" + fourStarBase;
+                        document.getElementById('crystN').innerHTML = "N:" + fourStarBase;
                     } else if (level >= 10 && level < 20) {//20
-                        document.getElementById('crystN').innerHTML = "CrystalN:" + fourStarBase * 2;
+                        document.getElementById('crystN').innerHTML = "N:" + fourStarBase * 2;
                     } else if (level >= 20 && level < 30) {//30
-                        document.getElementById('crystN').innerHTML = "CrystalN:" + fourStarBase * 4;
+                        document.getElementById('crystN').innerHTML = "N:" + fourStarBase * 4;
                     } else if (level >= 30 && level < 40) {//40
-                        document.getElementById('crystN').innerHTML = "CrystalN:" + fourStarBase * 8;
-                        document.getElementById('crystR').innerHTML = "CrystalR:" + fourStarBase * 3.75;
+                        document.getElementById('crystN').innerHTML = "N:" + fourStarBase * 8;
+                        document.getElementById('crystR').innerHTML = "R:" + fourStarBase * 3.75;
                     } else if (level >= 40 && level < 50) {//50
-                        document.getElementById('crystN').innerHTML = "CrystalN:" + fourStarBase * 16;
-                        document.getElementById('crystR').innerHTML = "CrystalR:" + fourStarBase * 7.5;
+                        document.getElementById('crystN').innerHTML = "N:" + fourStarBase * 16;
+                        document.getElementById('crystR').innerHTML = "R:" + fourStarBase * 7.5;
                     } else if (level >= 50 && level < 60) {//60
-                        document.getElementById('crystN').innerHTML = "CrystalN:" + fourStarBase * 37.5;
-                        document.getElementById('crystR').innerHTML = "CrystalR:" + fourStarBase * 15.9375;
-                        document.getElementById('crystSR').innerHTML = "CrystalSR:" + fourStarBase * 7.5;
+                        document.getElementById('crystN').innerHTML = "N:" + fourStarBase * 37.5;
+                        document.getElementById('crystR').innerHTML = "R:" + fourStarBase * 15.9375;
+                        document.getElementById('crystSR').innerHTML = "SR:" + fourStarBase * 7.5;
                     } else if (level >= 50 && level < 70) {//70
-                        document.getElementById('crystN').innerHTML = "CrystalN:" + fourStarBase * 60;
-                        document.getElementById('crystR').innerHTML = "CrystalR:" + fourStarBase * 25;
-                        document.getElementById('crystSR').innerHTML = "CrystalSR:" + fourStarBase * 12.44;
+                        document.getElementById('crystN').innerHTML = "N:" + fourStarBase * 60;
+                        document.getElementById('crystR').innerHTML = "R:" + fourStarBase * 25;
+                        document.getElementById('crystSR').innerHTML = "SR:" + fourStarBase * 12.44;
                     } else if (level >= 50 && level <= 80) {//60
-                        document.getElementById('crystN').innerHTML = "CrystalN:" + fourStarBase * 30;
-                        document.getElementById('crystR').innerHTML = "CrystalR:" + fourStarBase * 12;
-                        document.getElementById('crystSR').innerHTML = "CrystalSR:" + fourStarBase * 4.5;
+                        document.getElementById('crystN').innerHTML = "N:" + fourStarBase * 30;
+                        document.getElementById('crystR').innerHTML = "R:" + fourStarBase * 12;
+                        document.getElementById('crystSR').innerHTML = "SR:" + fourStarBase * 4.5;
                     }
                 }//4starend
+                //Bottles of Wishes requirements
+                fetch('Level_chart_4_star.json')
+                    .then(res => res.json())
+                    .then(data => {
+//hopefully this will work
+                        // Get the next level from the input
+                        let nxtLvl = document.getElementById("nxtLevel").value;
+                        let lvl = data.find(item => item.level == level);
+                        if (bnt === "4") {
+                            if (nxtLvl >= 1 && nxtLvl < 10) {//10
+                                exp = data.find(item => item.level == nxtLvl).expNeed;
+                                document.getElementById('bottleN').innerHTML = "BottleN:" + Math.ceil(exp / expBottleN);
+                                document.getElementById('bottleR').innerHTML = "BottleR:" + Math.ceil(exp / expBottleR);
+                                document.getElementById('bottleSR').innerHTML = "BottleSR:" + Math.ceil(exp / expBottleSR);
+                                document.getElementById('bottleSSR').innerHTML = "BottleSSR:" + Math.ceil(exp / expBottleSSR);
+                            } else if (nxtLvl >= 10 && nxtLvl < 20) {//20
+                                exp = data.find(item => item.level == nxtLvl).expNeed;
+                                document.getElementById('bottleN').innerHTML = "BottleN:" + Math.ceil(exp / expBottleN);
+                                document.getElementById('bottleR').innerHTML = "BottleR:" + Math.ceil(exp / expBottleR);
+                                document.getElementById('bottleSR').innerHTML = "BottleSR:" + Math.ceil(exp / expBottleSR);
+                                document.getElementById('bottleSSR').innerHTML = "BottleSSR:" + Math.ceil(exp / expBottleSSR);
+                            } else if (nxtLvl >= 20 && nxtLvl < 30) {//30
+                                exp = data.find(item => item.level == nxtLvl).expNeed;
+                                document.getElementById('bottleN').innerHTML = "BottleN:" + Math.ceil(exp / expBottleN);
+                                document.getElementById('bottleR').innerHTML = "BottleR:" + Math.ceil(exp / expBottleR);
+                                document.getElementById('bottleSR').innerHTML = "BottleSR:" + Math.ceil(exp / expBottleSR);
+                                document.getElementById('bottleSSR').innerHTML = "BottleSSR:" + Math.ceil(exp / expBottleSSR);
+                            } else if (nxtLvl >= 30 && nxtLvl < 40) {//40
+                                exp = data.find(item => item.level == nxtLvl).expNeed;
+                                document.getElementById('bottleN').innerHTML = "BottleN:" + Math.ceil(exp / expBottleN);
+                                document.getElementById('bottleR').innerHTML = "BottleR:" + Math.ceil(exp / expBottleR);
+                                document.getElementById('bottleSR').innerHTML = "BottleSR:" + Math.ceil(exp / expBottleSR);
+                                document.getElementById('bottleSSR').innerHTML = "BottleSSR:" + Math.ceil(exp / expBottleSSR);
+                            } else if (nxtLvl >= 40 && nxtLvl < 50) {//50
+                                exp = data.find(item => item.level == nxtLvl).expNeed;
+                                document.getElementById('bottleN').innerHTML = "BottleN:" + Math.ceil(exp / expBottleN);
+                                document.getElementById('bottleR').innerHTML = "BottleR:" + Math.ceil(exp / expBottleR);
+                                document.getElementById('bottleSR').innerHTML = "BottleSR:" + Math.ceil(exp / expBottleSR);
+                                document.getElementById('bottleSSR').innerHTML = "BottleSSR:" + Math.ceil(exp / expBottleSSR);
+                            } else if (nxtLvl >= 50 && nxtLvl < 60) {//60
+                                exp = data.find(item => item.level == nxtLvl).expNeed;
+                                document.getElementById('bottleN').innerHTML = "BottleN:" + Math.ceil(exp / expBottleN);
+                                document.getElementById('bottleR').innerHTML = "BottleR:" + Math.ceil(exp / expBottleR);
+                                document.getElementById('bottleSR').innerHTML = "BottleSR:" + Math.ceil(exp / expBottleSR);
+                                document.getElementById('bottleSSR').innerHTML = "BottleSSR:" + Math.ceil(exp / expBottleSSR);
+                            } else if (nxtLvl >= 60 && nxtLvl < 70) {//70
+                                exp = data.find(item => item.level == nxtLvl).expNeed;
+                                document.getElementById('bottleN').innerHTML = "BottleN:" + Math.ceil(exp / expBottleN);
+                                document.getElementById('bottleR').innerHTML = "BottleR:" + Math.ceil(exp / expBottleR);
+                                document.getElementById('bottleSR').innerHTML = "BottleSR:" + Math.ceil(exp / expBottleSR);
+                                document.getElementById('bottleSSR').innerHTML = "BottleSSR:" + Math.ceil(exp / expBottleSSR);
+                            } else if (nxtLvl >= 70 && nxtLvl <= 80) {//80
+                                exp = data.find(item => item.level == nxtLvl).expNeed;
+                                document.getElementById('bottleN').innerHTML = "BottleN:" + Math.ceil(exp / expBottleN);
+                                document.getElementById('bottleR').innerHTML = "BottleR:" + Math.ceil(exp / expBottleR);
+                                document.getElementById('bottleSR').innerHTML = "BottleSR:" + Math.ceil(exp / expBottleSR);
+                                document.getElementById('bottleSSR').innerHTML = "BottleSSR:" + Math.ceil(exp / expBottleSSR);
+                            } else {
+                                document.getElementById('bottleN').innerHTML = "BottleN:0";
+                                document.getElementById('bottleR').innerHTML = "BottleR:0";
+                                document.getElementById('bottleSR').innerHTML = "BottleSR:0";
+                                document.getElementById('bottleSSR').innerHTML = "BottleSSR:0";
+                            }
+
+                        }
+                    });
             }
-
-
-
 
         </script>
     </body>
