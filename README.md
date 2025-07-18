@@ -2,7 +2,7 @@
 Love and Deepspace game, Ascension Calculator 
 mini project still a work in progress (slow)
 should be able to calculate the amount of Exp wish bottles and Crystals needed for the next level up.
-! may or may not be good work! Just learn HTML, CSS, and JS. So I'm still new to coding a webpage.
+<p> <b>! may or may not be good work! Just learn HTML, CSS, and JS. So I'm still new to coding a webpage.</b></p>
 <h4>-c5/29-</h4>
 <p> Working on the skeleton and calculation.</p>
 <h4>~ This part of the update skip was that I forgot to git every progress I made ~</h4>
